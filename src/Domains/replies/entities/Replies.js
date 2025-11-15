@@ -1,0 +1,18 @@
+class Replies {
+  constructor({ id, username, date, content, is_delete }) {
+    if (!id || !username || !date || !content || is_delete === undefined) {
+      throw new Error('REPLIES.NOT_CONTAIN_NEEDED_PROPERTY');
+    }
+
+    if (typeof id !== 'string' || typeof username !== 'string' || typeof date !== 'string' || typeof content !== 'string' || typeof is_delete !== 'boolean') {
+      throw new Error('REPLIES.NOT_MEET_DATA_TYPE_SPECIFICATION');
+    }
+
+    this.id = id;
+    this.username = username;
+    this.date = date;
+    this.content = is_delete ? '**balasan telah dihapus**' : content;
+  }
+}
+
+module.exports = Replies;
