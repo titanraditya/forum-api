@@ -18,6 +18,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
+          export PATH="/www/server/nodejs/v22.16.0/bin:$PATH"
+          
           cd ~/forum-api
           git pull origin master
           npm install
