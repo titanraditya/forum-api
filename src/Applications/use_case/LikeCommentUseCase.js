@@ -14,7 +14,7 @@ class LikeCommentUseCase {
 
     const thread = await this._threadRepository.getThreadById(threadId);
 
-    if(thread) {
+    if(!thread) {
       throw new Error('LIKE_COMMENT_USE_CASE.THREAD_NOT_FOUND');
     }
 
