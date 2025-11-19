@@ -6,10 +6,12 @@ class GetThreadUseCase {
     threadRepository,
     commentRepository,
     replyRepository,
+    likeRepository,
   }) {
     this._threadRepository = threadRepository;
     this._commentRepository = commentRepository;
     this._replyRepository = replyRepository;
+    this._likeRepository = likeRepository;
   }
 
   async execute(idThread) {
@@ -24,12 +26,14 @@ class GetThreadUseCase {
     const comments = await Promise.all(
       commentRepo.map(async (comment) => {
         const repliesRepo = await this._replyRepository.getReplyByComment(comment.id);
+        const likeRepo = await this._likeRepository.getLikeIdOnComment(comment.id);
+        const count = likeRepo?.length ?? 0;
         const replies = await Promise.all(
           repliesRepo.map(async (reply) => {
             return new Replies({ ...reply });
           })
         );
-        return new Comments({ ...comment, replies });
+        return new Comments({ ...comment, replies, likeCount: count });
       })
     );
 

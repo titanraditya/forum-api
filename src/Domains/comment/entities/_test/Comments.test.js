@@ -35,10 +35,11 @@ describe('a Comments entities', () => {
       date: '2025-11-01T00:00:00.000Z',
       is_delete: false,
       replies: [],
+      likeCount: 0,
     }
 
     // Action
-    const { id, content, username, date, replies } = new Comments(payload);
+    const { id, content, username, date, replies, likeCount } = new Comments(payload);
 
     // Assert
     expect(id).toEqual(payload.id);
@@ -46,6 +47,7 @@ describe('a Comments entities', () => {
     expect(username).toEqual(payload.username);
     expect(date).toEqual(payload.date);
     expect(replies).toEqual([]);
+    expect(likeCount).toEqual(0);
   });
 
   it('should create comments object correctly with not valid comment', () => {
@@ -57,10 +59,11 @@ describe('a Comments entities', () => {
       date: '2025-11-01T00:00:00.000Z',
       replies: [],
       is_delete: true,
+      likeCount: 0,
     }
 
     // Action
-    const { id, content, username, date, replies } = new Comments(payload);
+    const { id, content, username, date, replies, likeCount } = new Comments(payload);
 
     // Assert
     expect(id).toEqual(payload.id);
@@ -68,5 +71,6 @@ describe('a Comments entities', () => {
     expect(username).toEqual(payload.username);
     expect(date).toEqual(payload.date);
     expect(replies).toEqual([]);
+    expect(likeCount).toEqual(0);
   });
 });
