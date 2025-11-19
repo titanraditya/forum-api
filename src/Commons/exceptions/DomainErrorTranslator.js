@@ -38,6 +38,8 @@ DomainErrorTranslator._directories = {
   'DELETE_REPLY_USE_CASE.COMMENT_NOT_FOUND': new NotFoundError('comment tidak ada'),
   'DELETE_REPLY_USE_CASE.REPLY_NOT_FOUND': new NotFoundError('reply tidak ada'),
   'DELETE_REPLY_USE_CASE.USER_NOT_AUTHORIZED': new AuthorizationError('user tidak memiliki akses untuk reply'),
+  'LIKE_COMMENT_USE_CASE.THREAD_NOT_FOUND': new NotFoundError('thread tidak ada'),
+  'LIKE_COMMENT_USE_CASE.COMMENT_NOT_FOUND': new NotFoundError('comment tidak ada'),
 };
 
 module.exports = DomainErrorTranslator;

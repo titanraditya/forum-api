@@ -1,5 +1,5 @@
 class Comments {
-  constructor({ id, username, date, content, is_delete, replies = [] }) {
+  constructor({ id, username, date, content, is_delete, replies = [], likeCount }) {
 
     if (!id || !username || !date || !content || is_delete === undefined) {
       throw new Error('COMMENTS.NOT_CONTAIN_NEEDED_PROPERTY');
@@ -14,6 +14,7 @@ class Comments {
     this.date = date;
     this.content = is_delete ? '**komentar telah dihapus**' : content;
     this.replies = replies;
+    this.likeCount = likeCount;
   }
 }
 
