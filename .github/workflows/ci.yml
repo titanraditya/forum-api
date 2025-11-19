@@ -51,6 +51,6 @@ jobs:
         PGPASSWORD: mysecretpassword
         PGDATABASE: forumapi_test
         ACCESS_TOKEN_KEY: secret
-        RESFRESH_TOKEN_KEY: terces
+        REFRESH_TOKEN_KEY: terces
         ACCESS_TOKEN_AGE: 3600
         
