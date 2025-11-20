@@ -27,7 +27,7 @@ class GetThreadUseCase {
       commentRepo.map(async (comment) => {
         const repliesRepo = await this._replyRepository.getReplyByComment(comment.id);
         const likeRepo = await this._likeRepository.getLikeIdOnComment(comment.id);
-        const count = likeRepo?.length ?? 0;
+        const count = likeRepo.length;
         const replies = await Promise.all(
           repliesRepo.map(async (reply) => {
             return new Replies({ ...reply });
